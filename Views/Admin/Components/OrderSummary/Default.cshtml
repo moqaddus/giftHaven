@@ -1,0 +1,37 @@
+﻿@*@model List<OrderItem>
+
+
+    <p>@ViewData["orderid"]</p>
+   <ul>
+      @foreach (var item in Model)
+      {
+          if(Convert.ToInt32(ViewData["orderid"])==item.OrderId)
+          {
+
+          
+                <li>@item.ItemId</li>
+                <li>@item.OrderId</li>
+
+          }
+          
+      }
+    </ul>*@
+
+
+
+@model List<tempOrderItem>
+
+
+
+   <ul>
+      @foreach (var item in Model)
+      {
+          if(Convert.ToInt32(ViewData["orderid"])==item.OrderId)
+          {
+
+                <li>@item.Name</li>
+
+          }
+          
+      }
+    </ul>

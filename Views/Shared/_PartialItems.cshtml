@@ -1,0 +1,46 @@
+﻿@model InventoryItem
+@{
+    var idc = @TempData["userid"];
+}
+
+<body>
+<div class="item" data-description=@Model.Description>
+    <h3 class="item-title">@Model.ItemName</h3>
+    <p class="item-price">@Model.Price $</p>
+    <img src="@Model.imagePath" alt=@Model.imagePath  >
+  <a href=@ViewData["action"]/@Model.ItemId>  <button id="add-to-cart-button" data-item-id="@Model.ItemId" data-user-id="@idc" class="add-to-cart">Add to Cart</button></a>
+  </div>
+       
+   
+
+
+  @*<script>
+
+  $(document).ready(function() {
+  // Add-to-cart button click event handler
+  $('#add-to-cart-button').click(function() {
+    var itemId = $(this).data('item-id');
+
+    // Make an AJAX request to the server-side endpoint
+    $.ajax({
+      url: '/Cart/AddToCart',
+      type: 'POST',
+      data: { itemId: itemId },
+      success: function(response) {
+        if (response.success) {
+          // Item added to cart successfully
+          alert(response.message);
+        } else {
+          // Item not found or error occurred
+          alert(response.message);
+        }
+      },
+      error: function() {
+        // Error occurred during the AJAX request
+        alert('An error occurred while adding the item to the cart.');
+      }
+    });
+  });
+});
+</script>*@
+</body>

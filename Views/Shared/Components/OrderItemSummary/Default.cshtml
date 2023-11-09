@@ -1,0 +1,6 @@
+﻿@model List<InventoryItem>
+
+@foreach(var item in Model)
+{
+    <p><a href="#">@item.ItemName</a> <span class="price">$ @item.Price</span></p>
+}

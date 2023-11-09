@@ -1,0 +1,58 @@
+﻿<head>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    legend {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+    </style>
+</head>
+<form class="form-horizontal" action="/Admin/addAdmin" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend><br />Add an Admin<br /></legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">NAME</label>  
+  <div class="col-md-4">
+  <input id="name" name="UserName" placeholder="Admin name" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">EMAIL</label>  
+  <div class="col-md-4">
+  <input id="email" name="Email" placeholder="--Email--" class="form-control input-md"  type="email">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">PASSWORD</label>  
+  <div class="col-md-4">
+  <input id="password" name="Password" placeholder="--Password--" class="form-control input-md" type="password">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton">Save & Add</label>
+  <div class="col-md-4">
+    <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">SAVE</button>
+  </div>
+  </div>
+
+</fieldset>
+</form>

@@ -1,0 +1,139 @@
+﻿@{
+    Layout = "_Layout2";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+ 
+ h1, h2 {
+  text-align: center;
+}
+
+#review-form {
+  margin-bottom: 20px;
+}
+
+#review-form input[type="text"], #review-form textarea {
+  display: block;
+  width: 300px; /* Set your desired width */
+  margin-bottom: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#review-form textarea {
+  height: 100px;
+}
+
+#review-form button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#review-form button:hover {
+  background-color: #45a049;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#messagesList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.review-name {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.review-message {
+  display: block;
+  font-style: italic;
+  margin-left:5px;
+}
+.review-rating {
+  color: gold; /* Set the color of the rating stars */
+  font-size: 16px; /* Adjust the font size of the rating */
+  /* Add any other desired styles for the rating element */
+}
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+
+#messagesList li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+  }
+
+  .rating-stars .star {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .rating-stars .star.filled {
+    color: orange;
+  }
+
+
+
+</style>
+ 
+</head>
+<body>
+    <h1>Customer Reviews</h1>
+<div class="container">
+    <div id="review-form">
+  <div class="row p-1">
+    <div class="col-6 text-end">
+      <input type="text" id="name" placeholder="Your Name" />
+      <textarea id="msg" placeholder="Your Review"></textarea>
+      <button id="sendButton">Send Message</button>
+    </div>
+    </div>
+  </div>
+  <div class="row p-1">
+    <div class="col-6">
+      <hr />
+    </div>
+  </div>
+  @*<div class="row p-1">
+    <div class="col-6">*@
+      <ul id="messagesList"></ul>
+   @* </div>
+  </div>*@
+</div>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+</body>
+</html>
+
+
+
+
+

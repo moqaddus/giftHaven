@@ -1,0 +1,117 @@
+﻿@model List<InventoryItem>
+@{
+    string a = Convert.ToString(ViewData["all"]);
+    string c = Convert.ToString(ViewData["call"]);
+}
+
+
+
+@foreach(var item in Model)
+{
+
+               @*<img src=@item.imagePath alt="" class="cart-img"/>
+        <div class="detail-box" data-item-id="@item.ItemId">      
+            <div class="cart-product-title">@item.ItemName</div>
+            <div class="cart-price">$ @item.Price</div>
+            <input type="number" min="1" value="1" class="cart-quantity"/>
+        </div>
+        <a href="/Cart/remove/@item.ItemId/@a/@c" > <i class="bx bxs-trash-alt cart-remove"></i></a>
+        <button class="save-button">Save</button>*@
+
+        <img src="@item.imagePath" alt="" class="cart-img" />
+<div class="detail-box" data-item-id="@item.ItemId">
+  <div class="cart-product-title">@item.ItemName</div>
+  <div class="cart-price">$@item.Price</div>
+  @*<input type="number" id="quant" min="1" value=@item.Quantity class="cart-quantity" />*@
+  <input type="number" id="quant-@item.ItemId" min="1" max= @TempData["q-"+@item.ItemId] value="@item.Quantity" class="cart-quantity" />
+  <a class="save-link" href="/Cart/updateQuantity/@item.ItemId/@a/@c" data-item-id="@item.ItemId">Save
+  @*<button class="save-button-@item.ItemId">Save</button>*@
+</a>
+  
+</div>
+<a href="/Cart/remove/@item.ItemId/@a/@c">
+  <i class="bx bxs-trash-alt cart-remove"></i>
+</a>
+}
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  var saveLinks = document.getElementsByClassName('save-link');
+
+  Array.from(saveLinks).forEach(function(saveLink) {
+    saveLink.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the default click behavior of the link
+
+      var itemId = saveLink.getAttribute('data-item-id');
+      var quantityInput = document.getElementById('quant-' + itemId);
+      var Quantity = quantityInput.value;
+
+      var updatedUrl = '/Cart/updateQuantity/' + itemId + '/' + Quantity + '/@a/@c';
+
+      // Redirect to the updated URL
+      window.location.href = updatedUrl;
+    });
+  });
+});
+
+
+
+
+
+//    document.addEventListener('DOMContentLoaded', function() {
+//  var quantityInput = document.getElementById('quant');
+//  var saveLink = document.getElementById('saveLink');
+//  var saveButton = saveLink.querySelector('.save-button');
+
+//  saveButton.addEventListener('click', function(event) {
+//    event.preventDefault(); // Prevent the default click behavior of the button
+
+//    var Quantity = quantityInput.value;
+//    var itemId = saveLink.getAttribute('href').split('/')[3]; // Extract the item ID from the URL
+
+//    var updatedUrl = '/Cart/updateQuantity/' + itemId+ '/' + Quantity + '/@a/@c/';
+//    saveLink.setAttribute('href', updatedUrl);
+
+//    // Optionally, you can perform any additional actions here before redirecting to the updated URL
+
+//    window.location.href = saveLink.getAttribute('href'); // Redirect to the updated URL
+//  });
+//});
+
+</script>
+
+
+@*<script>
+
+
+    $(document).ready(function() {
+  $('.save-button').click(function() {
+    var $detailBox = $(this).closest('.detail-box');
+    var itemId = $detailBox.data('item-id');
+    var quantity = $detailBox.find('.cart-quantity').val();
+
+    updateCartItemQuantity(itemId, quantity);
+  });
+
+  function updateCartItemQuantity(itemId, quantity) {
+    // Send an AJAX request to the server to update the quantity
+    $.ajax({
+      url: '/Cart/UpdateQuantity',
+      method: 'POST',
+      data: { itemId: itemId, quantity: quantity },
+      success: function(response) {
+        // Handle the response from the server if needed
+        console.log(response);
+      },
+      error: function(xhr, status, error) {
+        // Handle any errors that occur during the AJAX request
+        console.log('Error:', error);
+      }
+    });
+  }
+});
+
+
+</script>
+*@

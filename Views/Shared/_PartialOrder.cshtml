@@ -1,0 +1,17 @@
+﻿@model WebWebWeb.Order
+
+<tr>
+    <td>@Model.OrderId</td>
+    <td>@Model.OrderDate</td>
+    <td>@Model.CustomerName</td>
+    <td>@Model.DeliveryAddress</td>
+    <td>@Model.City</td>
+    <td>@Model.Zip</td>
+    <td>@Model.Email</td>
+    <td>@Model.Cnn</td>
+    <td>@Model.Cvv</td>
+    <td>@Model.TotalAmount</td>
+    <td>
+            <button class="btn btn-primary" onclick="showOrderSummary('@Model.OrderId')">Show Items</button>
+    </td>
+</tr>

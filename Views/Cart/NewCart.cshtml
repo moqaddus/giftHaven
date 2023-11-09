@@ -1,0 +1,162 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+
+<style>
+.cart{
+position:fixed;
+top:0;
+right:-100%;
+width:360px;
+height:100vh;
+overflow-y:auto;
+overflow-x:hidden;
+padding:20px;
+background-color:var(--bg-color);
+box-shadow: -2px 4px hsl(0 4% 15% / 10%);
+border:1px solid var(--main-color);
+transition:1.5s;
+
+}
+.cart.active{
+    right:0;
+    transition: .5s;
+}
+
+.cart-title{
+    text-align:center;
+    font-size:1.5rem;
+    font-weight:600;
+    margin-top:2rem;
+
+}
+
+.cart-box{
+    display:grid;
+    grid-template-columns:32% 50% 18%;
+    align-items:center;
+    gap:1rem;
+    margin-top:1rem;
+
+}
+
+.cart-img {
+  width: 100px; /* Adjust the width to your desired size */
+  height: auto; /* Allow the height to adjust automatically to maintain the aspect ratio */
+  object-fit: contain;
+  padding: 10px;
+}
+
+.detail-box{
+    display:grid;
+    row-gap: .5rem;
+}
+
+.cart-product-title{
+    font-size:1rem;
+    text-transform:uppercase;
+}
+
+.cart-price{
+    font-weight:500;
+}
+
+.cart-quantity{
+    border:1px solid ;
+    outline-color:black;
+    width:2.4rem;
+    text-align:center;
+    font-size:1rem;
+
+
+}
+.cart-remove{
+    font-size:24px;
+    color:red;
+    cursor:pointer;
+}
+
+.Total{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:1.5rem;
+    border-top:1px solid;
+}
+
+.total-title{
+    font-size:1rem;
+    font-weight:600;
+}
+
+.Total-price{
+    margin-left:.5rem;
+}
+.btn-buy{
+    display:flex;
+    margin: 1.5rem auto 0 auto;
+    padding:12px 20px;
+    border:none;
+    font-size:1rem;
+    background-color:blue;
+    color:white;
+    font-weight:500;
+    cursor:pointer
+}
+.btn-buy:hover{
+    background-color:lightblue;
+    color:black;
+
+
+}
+
+#cart-close{
+    position:absolute;
+    top:1rem;
+    right:.8rem;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+    <i class='bx bxs-cart' id="cart-icon"></i>
+<div class="cart">
+<h2 class="cart-title">Cart</h2>
+<div class="cart-content">
+    <div class="cart-box">
+               <img src="~/images/ring.jpg" alt="" class="cart-img"/>
+        <div class="detail-box">
+
+ 
+            
+            <div class="cart-product-title">BCSKPACK</div>
+            <div class="cart-price">$25.04</div>
+            <input type="number" value="1" class="cart-quantity" />
+        </div>
+        <i class="bx bxs-trash-alt cart-remove"></i>
+    </div>
+</div>
+<div class="total">
+<div class="total-title">Total</div>
+<div class="total-price">$0</div>
+</div>
+<button  type="button" class="btn-buy">Buy Now</button>
+<i class="bx bx-x" id="cart-close"></i>
+</div>
+<script>
+const cartIcon=document.querySelector("#cart-icon");
+const cart=document.querySelector(".cart");
+const closeCart=document.querySelector("#cart-close");
+
+cartIcon.addEventListener('click',()=>{
+    cart.classList.add("active");
+});
+
+closeCart.addEventListener('click',()=>{
+    cart.classList.remove("active");
+});
+
+</script>
+</body>
+</html>

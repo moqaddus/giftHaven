@@ -1,0 +1,208 @@
+﻿@*<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Suggestions</title>
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Set the container height as needed */
+}
+
+.container img {
+ margin:30px;
+  max-width: 70%;
+  max-height: 100%;
+}
+
+.container img:hover{
+transform: scale(1.1);
+transition:0.5s;
+border: 1.5px solid #964B00;
+border-radius:20%;
+
+}
+.main h1{
+margin:20px;
+text-align:center;
+}
+  </style>
+  *@
+@{
+    TempData["pic1"]="/images/33.jpg";
+    TempData["pic2"] = "/images/4.jpg";
+    TempData["pic3"] = "/images/cake2.jpg";
+    TempData["pic4"] = "/images/choco.jpg";
+    TempData["pic5"] = "/images/10.jpeg";
+    TempData["pic6"] = "/images/ring.jpg";
+}
+
+
+@*</head>
+<body>
+  <header>
+    <h1>Gift Suggestions</h1>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Gift Ideas</h2>
+      <p>Here are some gift ideas for you:</p>
+      <partial name="_PartialBestSeller" model="@TempData["pic1"]" />*@
+@*<div class="main">
+     <h1>Personalized Frames</h1>
+      <div class="container">
+          <img src="images/frame.jpg">
+     </div> 
+</div>
+<div class="main">
+     <h1>Spa gift ideas</h1>
+      <div class="container">
+           <img src="images/men.jpg">
+     </div> 
+</div>
+<div class="main">
+     <h1>Customized Pillow</h1>
+      <div class="container">
+           <img src="images/pillow.jpg">
+     </div> 
+</div>
+<div class="main">
+     <h1>Customized Lamp</h1>
+      <div class="container">
+           <img src="images/lamp.jpg">
+     </div> 
+</div>
+<div class="main">
+     <h1>Customized Lamp</h1>
+      <div class="container">
+           <img src="images/mugs.jpg">
+     </div> 
+</div>
+<div class="main">
+     <h1>Customized Bouquet</h1>
+      <div class="container">
+           <img src="images/13.jpeg">
+     </div> 
+</div>
+    </section>
+  </main>
+</body>
+</html>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Best Seller Page</title>
+    <style>
+    .body_h {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header_h {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.main_g {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product {
+    text-align: center;
+    width: 300px;
+    margin: 20px;
+}
+
+img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header_h">
+        <h1>Best Sellers</h1>
+    </div>
+    
+    <div class="main_g">
+        <partial name="_PartialBestSeller" model="@TempData["pic1"]" />
+        <partial name="_PartialBestSeller" model="@TempData["pic2"]" />
+        <partial name="_PartialBestSeller" model="@TempData["pic3"]" />
+        <partial name="_PartialBestSeller" model="@TempData["pic4"]" />
+        <partial name="_PartialBestSeller" model="@TempData["pic5"]" />
+    </div>
+</body>
+</html>
